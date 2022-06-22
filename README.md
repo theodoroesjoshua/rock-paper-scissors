@@ -8,18 +8,6 @@
   <a href="https://github.com/theodoroesjoshua/Rock-Paper-Scissors"></a>
 
 <h3 align="center">Rock-Paper-Scissors</h3>
-
-  <p align="center">
-    <br />
-    <a href="https://github.com/theodoroesjoshua/Rock-Paper-Scissors"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/theodoroesjoshua/Rock-Paper-Scissors">View Demo</a>
-    ·
-    <a href="https://github.com/theodoroesjoshua/Rock-Paper-Scissors/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/theodoroesjoshua/Rock-Paper-Scissors/issues">Request Feature</a>
-  </p>
 </div>
 
 
