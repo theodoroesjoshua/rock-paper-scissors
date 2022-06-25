@@ -1,0 +1,23 @@
+.buttons {
+    display: flex;
+    gap: 20%;
+    justify-content: center;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-top: 12px;
+}
+
+.button {
+    padding: 8px;
+    background-color: blue;
+    color: white;
+    border-radius: 10px;
+}
+
+.result {
+    display: flex;
+    justify-content: center;
+    background-color: lightblue;
+    color: black;
+    padding: 10px;
+}
