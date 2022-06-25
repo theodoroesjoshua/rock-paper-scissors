@@ -1,5 +1,8 @@
+// Global variables
 let playerPoints = 0;
 let computerPoints = 0;
+let winnerDetermined = false;
+const rslt = document.querySelector('.result');
 
 // Return a random number from 1 to the given parameter number
 // including the numbers on edge
@@ -7,48 +10,63 @@ function random(num) {
   return Math.floor(Math.random() * num);
 }
 
+// If the winnder has been determined, the game ends.
+function checkWinner() {
+  let winner = '';
+  if (playerPoints >= 5) {
+    winnerDetermined = true;
+    winner = 'Player';
+  } else if (computerPoints >= 5) {
+    winnerDetermined = true;
+    winner = 'Computer';
+  }
+  if (winnerDetermined) {
+    rslt.textContent = `${winner} wins the game! End Result: Player ${playerPoints} - ${computerPoints} Computer.`;
+  }
+}
+
 function loseResults(playerSelection, computerSelection) {
-  const result = `You Lose! Computer used ${computerSelection} to beat your ${playerSelection}`;
   computerPoints += 1;
-  return result;
+  rslt.textContent = `You lose the round! Computer used ${computerSelection} to beat your ${playerSelection}.
+  Current Points: Player ${playerPoints} - ${computerPoints} Computer.`;
+  checkWinner();
 }
 
 function winResults(playerSelection, computerSelection) {
-  const result = `You Win! Your ${playerSelection} beats the computer's ${computerSelection}`;
   playerPoints += 1;
-  return result;
+  rslt.textContent = `You win the round! Your ${playerSelection} beats the computer's ${computerSelection}.
+  Current Points: Player ${playerPoints} - ${computerPoints} Computer.`;
+  checkWinner();
 }
 
 function drawResults(playerSelection, computerSelection) {
-  const result = `Draw! Your ${playerSelection} draw against the computer's ${computerSelection}`;
-  return result;
+  rslt.textContent = `Draw! Your ${playerSelection} draw against the computer's ${computerSelection}.
+  Current Points: Player ${playerPoints} - ${computerPoints} Computer.`;
 }
 
 // compare the hand of the players and the computers
 function compareSelections(playerSelection, computerSelection) {
-  let result;
   const playerHand = playerSelection.toLowerCase();
   const computerHand = computerSelection;
   if (playerHand === computerHand) {
-    result = drawResults(playerHand, computerHand);
+    drawResults(playerHand, computerHand);
   } else if (playerHand === 'paper') {
     if (computerHand === 'scissors') {
-      result = loseResults(playerHand, computerHand);
+      loseResults(playerHand, computerHand);
     } else if (computerHand === 'rock') {
-      result = winResults(playerHand, computerHand);
+      winResults(playerHand, computerHand);
     }
   } else if (playerHand === 'rock') {
     if (computerHand === 'paper') {
-      result = loseResults(playerHand, computerHand);
+      loseResults(playerHand, computerHand);
     } else if (computerHand === 'scissors') {
-      result = winResults(playerHand, computerHand);
+      winResults(playerHand, computerHand);
     }
   } else if (computerHand === 'rock') {
-    result = loseResults(playerHand, computerHand);
+    loseResults(playerHand, computerHand);
   } else if (computerHand === 'paper') {
-    result = winResults(playerHand, computerHand);
+    winResults(playerHand, computerHand);
   }
-  return result;
 }
 
 // computer randomly chooses a hand to play
@@ -65,22 +83,13 @@ function computerPlay() {
   return result;
 }
 
-// plays 5 rounds of rock paper scissors
-function game() {
-  let gameResult;
-
-  for (let i = 0; i < 5; i++) {
-    const playerSelection = prompt('Please choose a hand to play!', 'Your hand');
-    gameResult = compareSelections(playerSelection, computerPlay());
-    console.log(gameResult);
-  }
-  if (playerPoints > computerPoints) {
-    console.log(`Congratulations! You win ${playerPoints} to ${computerPoints}!`);
-  } else if (playerPoints < computerPoints) {
-    console.log(`Sorry! You lose ${computerPoints} to ${playerPoints}!`);
-  } else {
-    console.log(`Match Draw! Score is ${computerPoints} to ${playerPoints}`);
-  }
-}
-
-game();
+let playerSelection = '';
+const btn = document.querySelectorAll('.button');
+btn.forEach((button) => {
+  button.addEventListener('click', () => {
+    if (!winnerDetermined) {
+      playerSelection = button.textContent;
+      compareSelections(playerSelection, computerPlay());
+    }
+  });
+});
