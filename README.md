@@ -40,10 +40,10 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-A small web development project. The goal is to practise using JavaScript.
+A small web development project. The goal is to practise using JavaScript. It is a simple website to accomodate rock-paper-scissors duel with a computer.
 
 ### Built With
-HTML & JavaScript
+HTML & JavaScript, and also a wee bit of CSS.
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -60,7 +60,7 @@ Please follow the installation guide of the web browser of your choice!
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-Open index.html to go to the homepage of the website.
+Open index.html to go to the homepage of the website. Here you can choose, whether you want to go with rock, paper or scissors for the next round of the game. At the same time, the computer will randomly pick its hand and the round will then be played. If you win a round, you will get a victory point. Same case for the computer. First to 5 points win the match!
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- CONTACT -->
