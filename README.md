@@ -40,7 +40,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-A small web development project. The goal is to practise using JavaScript. It is a simple website to accomodate rock-paper-scissors duel with a computer.
+A small web development project. The goal is to practise using JavaScript. It is a simple website to accommodate rock-paper-scissors duel with a computer.
 
 ### Built With
 HTML & JavaScript, and also a wee bit of CSS.
